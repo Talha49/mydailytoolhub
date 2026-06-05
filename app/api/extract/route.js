@@ -1,21 +1,17 @@
+// Polyfill browser globals missing in Node.js for pdfjs-dist compatibility
+if (typeof global.DOMMatrix === 'undefined') {
+  global.DOMMatrix = class DOMMatrix {
+    constructor() {}
+  }
+}
+
 import { NextResponse } from 'next/server'
-import { PDFParse } from 'pdf-parse'
 import mammoth from 'mammoth'
 import { createWorker } from 'tesseract.js'
 import { pathToFileURL } from 'url'
 import path from 'path'
 
 export const dynamic = 'force-dynamic'
-
-// Set the PDF.js worker path to the absolute node_modules location using a file:// URL
-// This prevents Next.js Turbopack from failing to resolve the worker module on Windows and other OSs
-try {
-  const workerPath = path.join(process.cwd(), 'node_modules/pdfjs-dist/legacy/build/pdf.worker.mjs')
-  const workerUrl = pathToFileURL(workerPath).href
-  PDFParse.setWorker(workerUrl)
-} catch (e) {
-  console.warn('Failed to configure PDF.js worker path:', e.message)
-}
 
 // Helper to normalize and sanitize extracted text
 function normalizeText(text) {
@@ -43,6 +39,14 @@ export async function POST(request) {
     let extractedText = ''
 
     if (mimeType === 'application/pdf') {
+      const { PDFParse } = await import('pdf-parse')
+      try {
+        const workerPath = path.join(process.cwd(), 'node_modules/pdfjs-dist/legacy/build/pdf.worker.mjs')
+        const workerUrl = pathToFileURL(workerPath).href
+        PDFParse.setWorker(workerUrl)
+      } catch (e) {
+        console.warn('Failed to configure PDF.js worker path:', e.message)
+      }
       const parser = new PDFParse({ data: buffer })
       const data = await parser.getText()
       extractedText = data.text
