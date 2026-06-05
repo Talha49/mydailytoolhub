@@ -1,7 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   /* config options here */
-  serverExternalPackages: ['@xenova/transformers', 'onnxruntime-node'],
+  turbopack: {
+    resolveAlias: {
+      'onnxruntime-node': './lib/empty.js',
+    }
+  },
+  webpack: (config) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      'onnxruntime-node': './lib/empty.js',
+    };
+    return config;
+  }
 };
 
 export default nextConfig;
