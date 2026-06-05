@@ -1,10 +1,10 @@
 import { NextResponse } from 'next/server'
-import { getEmbeddings } from '@/lib/embeddings'
-import { loadSubmissions, addDocument, searchSimilarityLocal, dotProduct } from '@/lib/vector-store'
+import { loadSubmissions, addDocument, searchSimilarityLocal } from '@/lib/vector-store'
 import { chunkText } from '@/lib/chunker'
 import { analyzeReadability } from '@/lib/readability'
 import { selectKeySentences, searchWeb, fetchWebPageText } from '@/lib/search'
 import { analyzeAIWriting } from '@/lib/ai-detector'
+import { getPlagiarismScore } from '@/lib/similarity'
 
 export const dynamic = 'force-dynamic'
 
@@ -45,14 +45,12 @@ export async function POST(request) {
           })
           const crawledPages = await Promise.all(crawlPromises)
 
-          // Generate embeddings for crawled web text
+          // Save crawled web chunks directly without loading models
           for (const page of crawledPages) {
             if (!page.text || page.text.length < 50) continue
             
             const webChunks = chunkText(page.text, 150).slice(0, 10) // Limit to top 10 chunks per page to prevent lag
             if (webChunks.length === 0) continue
-
-            const webEmbeddings = await getEmbeddings(webChunks)
             
             let hostTitle = page.url
             try {
@@ -65,10 +63,7 @@ export async function POST(request) {
             webDocuments.push({
               title: hostTitle,
               url: page.url,
-              chunks: webChunks.map((cText, idx) => ({
-                text: cText,
-                embedding: webEmbeddings[idx]
-              }))
+              chunks: webChunks
             })
           }
         }
@@ -86,31 +81,27 @@ export async function POST(request) {
     // Load persistent submissions from MongoDB
     const dbSubmissions = await loadSubmissions()
 
-    // 4. Generate embeddings for each chunk
-    const chunkEmbeddings = await getEmbeddings(chunks)
-
-    // 5. Perform similarity searches on each chunk (Local DB + Crawled Web Pages)
+    // 4. Perform similarity searches on each chunk (Local DB + Crawled Web Pages)
     const chunkResults = []
     let totalMatchSum = 0
     const matchedSourcesMap = new Map() // url/filename -> sourceMetadata
 
     for (let i = 0; i < chunks.length; i++) {
       const chunkTextStr = chunks[i]
-      const chunkEmbedding = chunkEmbeddings[i]
 
-      // Search local database vectors
-      const localMatches = searchSimilarityLocal(chunkEmbedding, dbSubmissions, 0.40, 3)
+      // Search local database using pure JS similarity
+      const localMatches = searchSimilarityLocal(chunkTextStr, dbSubmissions, 0.40, 3)
 
-      // Search crawled web vector chunks
+      // Search crawled web chunks using pure JS similarity
       const webMatches = []
       for (const doc of webDocuments) {
         for (const wChunk of doc.chunks) {
-          const score = dotProduct(chunkEmbedding, wChunk.embedding)
+          const score = getPlagiarismScore(chunkTextStr, wChunk)
           if (score >= 0.40) {
             webMatches.push({
               filename: doc.title,
               url: doc.url,
-              text: wChunk.text,
+              text: wChunk,
               similarity: Math.round(score * 100)
             })
           }
@@ -276,13 +267,13 @@ export async function POST(request) {
       100 - (similarityScore * 0.3) - (aiAnalysis.score * 0.2) - (grammarIssues.length * 2.5)
     )))
 
-    // 12. Optionally save vectors to database
+    // 12. Optionally save text chunks to database
     if (saveToDb) {
-      const chunksWithEmbeddings = chunks.map((chunkTextStr, idx) => ({
+      const chunksForDb = chunks.map((chunkTextStr) => ({
         text: chunkTextStr,
-        embedding: chunkEmbeddings[idx]
+        embedding: []
       }))
-      await addDocument(filename || 'submission.txt', text, chunksWithEmbeddings)
+      await addDocument(filename || 'submission.txt', text, chunksForDb)
     }
 
     return NextResponse.json({

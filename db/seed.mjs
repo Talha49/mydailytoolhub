@@ -1,4 +1,3 @@
-import { getEmbedding } from '../lib/embeddings.js'
 import { addDocument, loadSubmissions } from '../lib/vector-store.js'
 
 const SAMPLES = [
@@ -29,20 +28,16 @@ async function seed() {
     process.exit(0)
   }
 
-  console.log('Initializing seeder... Generating embeddings for sample documents...')
+  console.log('Initializing seeder... Registering sample documents...')
   
   for (const sample of SAMPLES) {
     try {
       console.log(`Processing sample: ${sample.filename}`)
       
-      // Compute the embedding for the sample document
-      const embedding = await getEmbedding(sample.text)
-      
-      // Store as a single chunk for simplicity of seeding
       const chunks = [
         {
           text: sample.text,
-          embedding: embedding
+          embedding: []
         }
       ]
       
