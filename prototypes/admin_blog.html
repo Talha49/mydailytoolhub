@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Admin: Create Blog Post</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-[#0d121b] dark:text-white min-h-screen">
+    <div class="flex min-h-screen">
+        <!-- Sidebar Navigation -->
+        <aside
+            class="w-64 border-r border-[#cfd7e7] dark:border-gray-800 bg-white dark:bg-[#161b2a] fixed h-full flex flex-col">
+            <div class="p-6 flex items-center gap-3">
+                <div class="bg- size-10 rounded-lg flex items-center justify-center text-white">
+                    <span class="material-symbols-outlined">terminal</span>
+                </div>
+                <div>
+                    <h1 class="text-base font-bold leading-none">DevAdmin</h1>
+                    <p class="text-xs text-[#4c669a] mt-1">SEO &amp; Tools</p>
+                </div>
+            </div>
+            <nav class="flex-1 px-4 space-y-1 mt-4">
+                <a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-/10 text-" href="#">
+                    <span class="material-symbols-outlined">description</span>
+                    <span class="text-sm font-medium">Blogs</span>
+                </a>
+                <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-[#4c669a] hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                    href="#">
+                    <span class="material-symbols-outlined">build</span>
+                    <span class="text-sm font-medium">Tools</span>
+                </a>
+                <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-[#4c669a] hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                    href="#">
+                    <span class="material-symbols-outlined">analytics</span>
+                    <span class="text-sm font-medium">Analytics</span>
+                </a>
+                <div class="pt-4 pb-2 px-3">
+                    <p class="text-[10px] font-bold uppercase tracking-wider text-[#4c669a]">Management</p>
+                </div>
+                <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-[#4c669a] hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                    href="#">
+                    <span class="material-symbols-outlined">group</span>
+                    <span class="text-sm font-medium">Users</span>
+                </a>
+                <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-[#4c669a] hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                    href="#">
+                    <span class="material-symbols-outlined">settings</span>
+                    <span class="text-sm font-medium">Settings</span>
+                </a>
+            </nav>
+            <div class="p-4 border-t border-[#cfd7e7] dark:border-gray-800">
+                <div class="flex items-center gap-3 p-2">
+                    <div class="size-8 rounded-full bg-cover bg-center" data-alt="User avatar profile picture"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAOIhzCRW8bxDah2gqS2-FIMQL2LrLByz7Fr4YWQ2tNWX5PCXNol1-zB9-XbQ0wlNaZGTXc3U2rNRUlQlFp51-YyJZDK2no0y2oQfcII4ycWJ2LoiD-pgvRBr-YhwjSj4z0RLVyjKj_mwazDx0AuWUgqBZqsEMnBt05rERq9qxmYzwTST2j5Y3ioUzuLssNIk12Cb9YaVCG7L5f42y-fnonZFtJ7lvh_kHIS-giFXJfgp3wejydIfmT3h9cuu93TG61OQ2AOr14ETCO')">
+                    </div>
+                    <div class="flex-1 overflow-hidden">
+                        <p class="text-xs font-bold truncate">Alex Dev</p>
+                        <p class="text-[10px] text-[#4c669a] truncate">alex@platform.io</p>
+                    </div>
+                    <span class="material-symbols-outlined text-sm text-[#4c669a]">logout</span>
+                </div>
+            </div>
+        </aside>
+        <!-- Main Content Area -->
+        <main class="ml-64 flex-1 flex flex-col">
+            <!-- Header -->
+            <header
+                class="sticky top-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-[#cfd7e7] dark:border-gray-800 px-8 py-4">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <div class="flex items-center gap-2 mb-1">
+                            <a class="text-xs font-medium text-[#4c669a] hover:text-" href="#">Admin</a>
+                            <span class="text-[#4c669a] text-xs">/</span>
+                            <a class="text-xs font-medium text-[#4c669a] hover:text-" href="#">Blogs</a>
+                            <span class="text-[#4c669a] text-xs">/</span>
+                            <span class="text-xs font-medium text-[#0d121b] dark:text-white">Create New Post</span>
+                        </div>
+                        <h2 class="text-2xl font-black tracking-tight">Create New Blog Post</h2>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-xs text-[#4c669a] italic mr-2">Draft saved 2 mins ago</span>
+                        <button
+                            class="flex items-center justify-center px-4 h-10 rounded-lg bg-[#e7ebf3] dark:bg-gray-800 text-[#0d121b] dark:text-white text-sm font-bold transition-all hover:bg-[#d8dee9]">
+                            Save Draft
+                        </button>
+                        <button
+                            class="flex items-center justify-center px-6 h-10 rounded-lg bg- text-white text-sm font-bold shadow-lg shadow-/20 hover:bg-blue-700 transition-all">
+                            Publish Post
+                        </button>
+                    </div>
+                </div>
+            </header>
+            <div class="p-8 flex gap-8">
+                <!-- Left Column: Editor -->
+                <div class="flex-1 space-y-6">
+                    <!-- Title & Slug -->
+                    <div class="bg-white dark:bg-[#161b2a] rounded-xl p-6 border border-[#cfd7e7] dark:border-gray-800">
+                        <div class="space-y-4">
+                            <div>
+                                <label class="text-xs font-bold text-[#4c669a] uppercase tracking-wider mb-2 block">Post
+                                    Title</label>
+                                <input
+                                    class="w-full text-3xl font-bold bg-transparent border-0 border-b border-transparent focus:border- focus:ring-0 p-0 pb-2 placeholder:text-gray-300 dark:placeholder:text-gray-700"
+                                    placeholder="Enter a catchy, SEO-friendly title" type="text" />
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-[#4c669a]">
+                                <span class="material-symbols-outlined text-sm">link</span>
+                                <span>https://platform.io/blog/</span>
+                                <input class="bg-transparent border-0 p-0 text- font-medium focus:ring-0 w-auto"
+                                    placeholder="post-slug-here" type="text" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Markdown Editor -->
+                    <div
+                        class="bg-white dark:bg-[#161b2a] rounded-xl border border-[#cfd7e7] dark:border-gray-800 overflow-hidden flex flex-col h-[600px]">
+                        <div
+                            class="flex items-center justify-between px-4 py-2 bg-gray-50 dark:bg-gray-900 border-b border-[#cfd7e7] dark:border-gray-800">
+                            <div class="flex items-center gap-1">
+                                <button
+                                    class="p-2 hover:bg-gray-200 dark:hover:bg-gray-800 rounded text-gray-600 dark:text-gray-400">
+                                    <span class="material-symbols-outlined text-[20px]">format_bold</span>
+                                </button>
+                                <button
+                                    class="p-2 hover:bg-gray-200 dark:hover:bg-gray-800 rounded text-gray-600 dark:text-gray-400">
+                                    <span class="material-symbols-outlined text-[20px]">format_italic</span>
+                                </button>
+                                <button
+                                    class="p-2 hover:bg-gray-200 dark:hover:bg-gray-800 rounded text-gray-600 dark:text-gray-400">
+                                    <span class="material-symbols-outlined text-[20px]">link</span>
+                                </button>
+                                <div class="w-px h-6 bg-gray-300 dark:bg-gray-700 mx-1"></div>
+                                <button
+                                    class="p-2 hover:bg-gray-200 dark:hover:bg-gray-800 rounded text-gray-600 dark:text-gray-400">
+                                    <span class="material-symbols-outlined text-[20px]">format_list_bulleted</span>
+                                </button>
+                                <button
+                                    class="p-2 hover:bg-gray-200 dark:hover:bg-gray-800 rounded text-gray-600 dark:text-gray-400">
+                                    <span class="material-symbols-outlined text-[20px]">code</span>
+                                </button>
+                                <button
+                                    class="p-2 hover:bg-gray-200 dark:hover:bg-gray-800 rounded text-gray-600 dark:text-gray-400">
+                                    <span class="material-symbols-outlined text-[20px]">image</span>
+                                </button>
+                                <div class="w-px h-6 bg-gray-300 dark:bg-gray-700 mx-1"></div>
+                                <button
+                                    class="flex items-center gap-1 px-2 py-1 text-xs font-bold text- bg-/10 rounded">
+                                    <span class="material-symbols-outlined text-[16px]">ads_click</span> Insert Ad
+                                </button>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <button
+                                    class="text-xs font-bold text-[#4c669a] hover:text- transition-colors">Edit</button>
+                                <button
+                                    class="text-xs font-bold text-[#4c669a] hover:text- transition-colors border-l pl-2 dark:border-gray-700">Preview</button>
+                            </div>
+                        </div>
+                        <textarea
+                            class="flex-1 w-full resize-none p-6 bg-transparent border-0 focus:ring-0 font-mono text-sm leading-relaxed"
+                            placeholder="# Start writing your markdown content here..."></textarea>
+                        <div
+                            class="px-4 py-2 border-t border-[#cfd7e7] dark:border-gray-800 bg-gray-50 dark:bg-gray-900 flex justify-between items-center text-[10px] text-[#4c669a] font-medium">
+                            <span>Markdown mode enabled</span>
+                            <span>1,240 Words</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Right Column: Settings & SEO -->
+                <div class="w-80 space-y-6">
+                    <!-- SEO Metadata Card -->
+                    <div
+                        class="bg-white dark:bg-[#161b2a] rounded-xl border border-[#cfd7e7] dark:border-gray-800 overflow-hidden">
+                        <div class="p-4 border-b border-[#cfd7e7] dark:border-gray-800 flex items-center gap-2">
+                            <span class="material-symbols-outlined text- text-xl">search_check</span>
+                            <h3 class="text-sm font-bold">SEO Metadata</h3>
+                        </div>
+                        <div class="p-4 space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <label class="text-[11px] font-bold text-[#4c669a] uppercase">Meta Title</label>
+                                    <span class="text-[10px] text-green-500">58/60</span>
+                                </div>
+                                <input
+                                    class="w-full text-sm rounded-lg border-[#cfd7e7] dark:border-gray-700 bg-gray-50 dark:bg-gray-800 p-2 focus:ring- focus:border-"
+                                    placeholder="SEO optimized title" type="text" />
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <label class="text-[11px] font-bold text-[#4c669a] uppercase">Meta
+                                        Description</label>
+                                    <span class="text-[10px] text-orange-400">165/160</span>
+                                </div>
+                                <textarea
+                                    class="w-full text-sm rounded-lg border-[#cfd7e7] dark:border-gray-700 bg-gray-50 dark:bg-gray-800 p-2 focus:ring- focus:border-"
+                                    placeholder="Enter meta description for search results..." rows="3"></textarea>
+                            </div>
+                            <div>
+                                <label
+                                    class="text-[11px] font-bold text-[#4c669a] uppercase block mb-1">Keywords</label>
+                                <input
+                                    class="w-full text-sm rounded-lg border-[#cfd7e7] dark:border-gray-700 bg-gray-50 dark:bg-gray-800 p-2 focus:ring- focus:border-"
+                                    placeholder="dev, tools, tutorial..." type="text" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Post Configuration -->
+                    <div
+                        class="bg-white dark:bg-[#161b2a] rounded-xl border border-[#cfd7e7] dark:border-gray-800 overflow-hidden">
+                        <div class="p-4 border-b border-[#cfd7e7] dark:border-gray-800 flex items-center gap-2">
+                            <span class="material-symbols-outlined text- text-xl">settings_input_component</span>
+                            <h3 class="text-sm font-bold">Configuration</h3>
+                        </div>
+                        <div class="p-4 space-y-4">
+                            <div>
+                                <label class="text-[11px] font-bold text-[#4c669a] uppercase block mb-1">Link to
+                                    Tool</label>
+                                <select
+                                    class="w-full text-sm rounded-lg border-[#cfd7e7] dark:border-gray-700 bg-gray-50 dark:bg-gray-800 p-2 focus:ring- focus:border-">
+                                    <option>Select a Tool</option>
+                                    <option>JSON Formatter</option>
+                                    <option>RegEx Tester</option>
+                                    <option>Base64 Encoder</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label
+                                    class="text-[11px] font-bold text-[#4c669a] uppercase block mb-1">Category</label>
+                                <select
+                                    class="w-full text-sm rounded-lg border-[#cfd7e7] dark:border-gray-700 bg-gray-50 dark:bg-gray-800 p-2 focus:ring- focus:border-">
+                                    <option>Development</option>
+                                    <option>Tutorials</option>
+                                    <option>Case Studies</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="text-[11px] font-bold text-[#4c669a] uppercase block mb-2">Featured
+                                    Image</label>
+                                <div
+                                    class="border-2 border-dashed border-[#cfd7e7] dark:border-gray-700 rounded-lg p-6 flex flex-col items-center justify-center text-center cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                                    <span class="material-symbols-outlined text-[#4c669a] mb-2">add_a_photo</span>
+                                    <p class="text-[10px] text-[#4c669a]">Drag &amp; drop or click to upload</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Status Summary -->
+                    <div class="bg-/5 dark:bg-/10 rounded-xl p-4 border border-/20">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="text-xs font-bold text- uppercase">Readability</p>
+                            <span class="text-xs font-black text-">84/100</span>
+                        </div>
+                        <div class="w-full bg-/20 h-1.5 rounded-full overflow-hidden">
+                            <div class="bg- h-full w-[84%]"></div>
+                        </div>
+                        <p class="text-[10px] text-/70 mt-2 italic leading-tight">Great job! The content is easy to read
+                            and includes relevant developer keywords.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

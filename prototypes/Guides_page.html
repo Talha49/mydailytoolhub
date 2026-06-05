@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Blog Index: Guides &amp; Tutorials</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-[#0d121b] dark:text-white font-display">
+    <div class="relative flex min-h-screen flex-col overflow-x-hidden">
+        <!-- Top Navigation Bar -->
+        <header
+            class="sticky top-0 z-50 w-full border-b border-solid border-[#e7ebf3] dark:border-[#2d3748] bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+            <div class="mx-auto flex max-w-[1280px] items-center justify-between px-6 py-3">
+                <div class="flex items-center gap-8">
+                    <div class="flex items-center gap-3 text-">
+                        <div class="size-6">
+                            <svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M24 4C25.7818 14.2173 33.7827 22.2182 44 24C33.7827 25.7818 25.7818 33.7827 24 44C22.2182 33.7827 14.2173 25.7818 4 24C14.2173 22.2182 22.2182 14.2173 24 4Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </div>
+                        <h2 class="text-xl font-bold tracking-tight text-[#0d121b] dark:text-white">DevTools</h2>
+                    </div>
+                    <nav class="hidden md:flex items-center gap-6">
+                        <a class="text-sm font-medium hover:text- transition-colors" href="#">Tools</a>
+                        <a class="text-sm font-medium text-" href="#">Guides</a>
+                        <a class="text-sm font-medium hover:text- transition-colors" href="#">Tutorials</a>
+                        <a class="text-sm font-medium hover:text- transition-colors" href="#">Community</a>
+                    </nav>
+                </div>
+                <div class="flex flex-1 justify-end gap-4 items-center">
+                    <label class="relative hidden sm:block w-full max-w-xs">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-[#4c669a]">
+                            <span class="material-symbols-outlined text-[20px]">search</span>
+                        </span>
+                        <input
+                            class="block w-full rounded-lg border-none bg-[#e7ebf3] dark:bg-[#1f2937] py-2 pl-10 pr-3 text-sm placeholder:text-[#4c669a] focus:ring-2 focus:ring-"
+                            placeholder="Search guides..." type="text" />
+                    </label>
+                    <button class="bg- hover:bg-/90 text-white px-5 py-2 rounded-lg text-sm font-bold transition-all">
+                        Sign In
+                    </button>
+                </div>
+            </div>
+        </header>
+        <!-- Main Layout Container -->
+        <main class="mx-auto flex w-full max-w-[1280px] grow flex-col md:flex-row px-6 py-8 gap-8">
+            <!-- Sidebar: Navigation & Ads -->
+            <aside class="w-full md:w-64 flex-shrink-0">
+                <div class="sticky top-24 flex flex-col gap-8">
+                    <!-- Search Mobile (Visible only on mobile) -->
+                    <div class="sm:hidden w-full">
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-[#4c669a]">
+                                <span class="material-symbols-outlined text-[20px]">search</span>
+                            </span>
+                            <input
+                                class="block w-full rounded-lg border-none bg-[#e7ebf3] dark:bg-[#1f2937] py-2 pl-10 pr-3 text-sm placeholder:text-[#4c669a]"
+                                placeholder="Search..." type="text" />
+                        </div>
+                    </div>
+                    <!-- Categories Navigation -->
+                    <nav class="flex flex-col gap-2">
+                        <h3
+                            class="mb-2 text-xs font-bold uppercase tracking-wider text-[#4c669a] dark:text-gray-400 px-3">
+                            Categories</h3>
+                        <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-/10 text- font-semibold" href="#">
+                            <span class="material-symbols-outlined text-[20px]">grid_view</span>
+                            <span class="text-sm">All Categories</span>
+                        </a>
+                        <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-[#e7ebf3] dark:hover:bg-[#1f2937] text-[#0d121b] dark:text-gray-300 transition-colors"
+                            href="#">
+                            <span class="material-symbols-outlined text-[20px]">search_insights</span>
+                            <span class="text-sm font-medium">SEO &amp; Analytics</span>
+                        </a>
+                        <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-[#e7ebf3] dark:hover:bg-[#1f2937] text-[#0d121b] dark:text-gray-300 transition-colors"
+                            href="#">
+                            <span class="material-symbols-outlined text-[20px]">terminal</span>
+                            <span class="text-sm font-medium">Development</span>
+                        </a>
+                        <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-[#e7ebf3] dark:hover:bg-[#1f2937] text-[#0d121b] dark:text-gray-300 transition-colors"
+                            href="#">
+                            <span class="material-symbols-outlined text-[20px]">edit_note</span>
+                            <span class="text-sm font-medium">Writing</span>
+                        </a>
+                        <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-[#e7ebf3] dark:hover:bg-[#1f2937] text-[#0d121b] dark:text-gray-300 transition-colors"
+                            href="#">
+                            <span class="material-symbols-outlined text-[20px]">security</span>
+                            <span class="text-sm font-medium">Cybersecurity</span>
+                        </a>
+                    </nav>
+                    <!-- Ad Placement Container -->
+                    <div class="hidden md:block">
+                        <div
+                            class="h-[250px] w-full rounded-lg bg-[#e7ebf3] dark:bg-[#1f2937] flex flex-col items-center justify-center p-4 text-center border-2 border-dashed border-[#cbd5e1] dark:border-[#374151]">
+                            <span class="text-[10px] font-bold text-[#4c669a] uppercase mb-2">Advertisement</span>
+                            <div class="text-[#4c669a] text-xs">Ad Unit: Sidebar Widget</div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            <!-- Content Area -->
+            <div class="flex-1">
+                <!-- Page Heading -->
+                <div class="mb-10">
+                    <h1 class="text-4xl font-black leading-tight tracking-tight text-[#0d121b] dark:text-white mb-3">
+                        Guides &amp; Tutorials</h1>
+                    <p class="text-lg text-[#4c669a] dark:text-gray-400 max-w-2xl">Expert insights, step-by-step
+                        technical guides, and professional strategies for modern developers.</p>
+                </div>
+                <!-- Sponsored Banner (AdSense Placement) -->
+                <div
+                    class="mb-10 w-full h-[100px] bg-[#e7ebf3] dark:bg-[#1f2937] rounded-xl border border-[#cbd5e1] dark:border-[#374151] flex items-center justify-center">
+                    <span class="text-[10px] font-bold text-[#4c669a] uppercase">Advertisement</span>
+                </div>
+                <!-- Blog Post List -->
+                <section class="flex flex-col gap-6">
+                    <!-- Card 1 -->
+                    <article
+                        class="group bg-white dark:bg-[#1a2234] rounded-xl border border-[#e7ebf3] dark:border-[#2d3748] overflow-hidden hover:shadow-xl transition-all duration-300">
+                        <div class="flex flex-col md:flex-row h-full">
+                            <div class="md:w-1/3 overflow-hidden">
+                                <div class="h-full min-h-[200px] bg-center bg-no-repeat bg-cover transition-transform duration-500 group-hover:scale-105"
+                                    data-alt="Data visualization charts showing technical SEO performance metrics"
+                                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC2twz-bv-59YTsaamn1hk19Z3MMNXZx7WWLIQMUDXODYQlWwGYRbwYWWwPqzmemPXwtYfEZGEZHPccHRC6YyG0liza6LgqtSwNgFOX1mK-Iz3DgPD8z0E77aEJYkuZ574CK1OzGQJe_EyQODYBN6RoeOHNdRXxn5GNaCLapNLVGKKaAnuheZnjM3IwLYiZuqZswINH5121YbHNIj6c8wFFvXfjQr4wdpGHuB1w4V6032ufXF4oRGr0U0fvndDeDvqrWthHjdH0cPjc");'>
+                                </div>
+                            </div>
+                            <div class="p-6 md:w-2/3 flex flex-col justify-between">
+                                <div>
+                                    <div class="flex items-center gap-2 mb-3">
+                                        <span
+                                            class="bg-/10 text- text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full">SEO</span>
+                                        <span class="text-[#4c669a] text-xs flex items-center gap-1">
+                                            <span class="material-symbols-outlined text-[14px]">schedule</span>
+                                            5 min read • Oct 12, 2023
+                                        </span>
+                                    </div>
+                                    <h2
+                                        class="text-xl font-bold leading-tight text-[#0d121b] dark:text-white mb-2 group-hover:text- transition-colors">
+                                        Mastering Technical SEO for Next.js 14</h2>
+                                    <p class="text-[#4c669a] dark:text-gray-400 text-sm leading-relaxed mb-4">
+                                        Learn how to optimize your modern web applications for search engines with
+                                        advanced SSR techniques, dynamic metadata strategies, and Core Web Vitals.
+                                    </p>
+                                </div>
+                                <div class="flex items-center justify-between mt-auto">
+                                    <div class="flex items-center gap-2">
+                                        <div class="h-6 w-6 rounded-full bg-/20 flex items-center justify-center">
+                                            <span class="material-symbols-outlined text-[16px] text-">person</span>
+                                        </div>
+                                        <span class="text-xs font-medium text-[#0d121b] dark:text-gray-300">Alex
+                                            Rivera</span>
+                                    </div>
+                                    <button
+                                        class="flex items-center gap-1.5 px-4 py-1.5 bg- text-white rounded-lg text-xs font-bold hover:bg-/90 transition-all">
+                                        <span class="material-symbols-outlined text-[16px]">query_stats</span>
+                                        Use SEO Auditor
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Card 2 -->
+                    <article
+                        class="group bg-white dark:bg-[#1a2234] rounded-xl border border-[#e7ebf3] dark:border-[#2d3748] overflow-hidden hover:shadow-xl transition-all duration-300">
+                        <div class="flex flex-col md:flex-row h-full">
+                            <div class="md:w-1/3 overflow-hidden">
+                                <div class="h-full min-h-[200px] bg-center bg-no-repeat bg-cover transition-transform duration-500 group-hover:scale-105"
+                                    data-alt="Code snippets on a computer screen representing API development"
+                                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBBhQtUpPOVQvy1KlmoAQ5ylodIBFcIlnzFfhz6nqJB6i4itHAh5C2z_Ng1J4apNiWbof-YveyxFrSR5MNto9XYp2xwvYkBxI8giwjVvXBhny-Kvc3pweFi_vhR8C0dk9kQAwCYl7vsAEOs29UD4UkS6KbvvsDQc_0q2njUisWyuwAFhhr3eFQgMeVjcbZMzu3aKz84An3TXVPc3NCbAItWElIm6W1gexhkg0MoC4bhVfq-mxuMeVKqa7KHRrYzEPBFDcgeBl8biunr");'>
+                                </div>
+                            </div>
+                            <div class="p-6 md:w-2/3 flex flex-col justify-between">
+                                <div>
+                                    <div class="flex items-center gap-2 mb-3">
+                                        <span
+                                            class="bg-[#10b981]/10 text-[#10b981] text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full">Development</span>
+                                        <span class="text-[#4c669a] text-xs flex items-center gap-1">
+                                            <span class="material-symbols-outlined text-[14px]">schedule</span>
+                                            8 min read • Oct 10, 2023
+                                        </span>
+                                    </div>
+                                    <h2
+                                        class="text-xl font-bold leading-tight text-[#0d121b] dark:text-white mb-2 group-hover:text- transition-colors">
+                                        Building Robust APIs with Node.js and TypeScript</h2>
+                                    <p class="text-[#4c669a] dark:text-gray-400 text-sm leading-relaxed mb-4">
+                                        A comprehensive guide to creating scalable, type-safe, and secure backend
+                                        services using Express, Prisma, and robust validation middleware.
+                                    </p>
+                                </div>
+                                <div class="flex items-center justify-between mt-auto">
+                                    <div class="flex items-center gap-2">
+                                        <div class="h-6 w-6 rounded-full bg-/20 flex items-center justify-center">
+                                            <span class="material-symbols-outlined text-[16px] text-">person</span>
+                                        </div>
+                                        <span class="text-xs font-medium text-[#0d121b] dark:text-gray-300">Sarah
+                                            Chen</span>
+                                    </div>
+                                    <button
+                                        class="flex items-center gap-1.5 px-4 py-1.5 bg- text-white rounded-lg text-xs font-bold hover:bg-/90 transition-all">
+                                        <span class="material-symbols-outlined text-[16px]">data_object</span>
+                                        JSON Formatter
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Card 3 -->
+                    <article
+                        class="group bg-white dark:bg-[#1a2234] rounded-xl border border-[#e7ebf3] dark:border-[#2d3748] overflow-hidden hover:shadow-xl transition-all duration-300">
+                        <div class="flex flex-col md:flex-row h-full">
+                            <div class="md:w-1/3 overflow-hidden">
+                                <div class="h-full min-h-[200px] bg-center bg-no-repeat bg-cover transition-transform duration-500 group-hover:scale-105"
+                                    data-alt="Person writing notes on a notebook with a laptop nearby"
+                                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCOqLSmV8l2EIOSqlwjXTpUkzaNh1FWCKcPGibDi4LjNTR_WyWTA5tgvj4UjiXT1Pos3w1H6LQt0n9aLENY9Xhkhizzns4P9SD4-LnlNmhq6PEEFc-a5WlwBanyD3wLexu2OkCBIxAece4ifbgzZisIPTWBOSE5rAX1kMkS7NbIZX0w5Ej8ST3Zt-GbAzh9Ohw8rq0b-NBmgzMieY5egjysneHByDgj2oZZ7aqIykDVz-Rjn0AZHKjQ5fVTvb-ZAClIKaO3gSiWaqND");'>
+                                </div>
+                            </div>
+                            <div class="p-6 md:w-2/3 flex flex-col justify-between">
+                                <div>
+                                    <div class="flex items-center gap-2 mb-3">
+                                        <span
+                                            class="bg-[#f59e0b]/10 text-[#f59e0b] text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full">Writing</span>
+                                        <span class="text-[#4c669a] text-xs flex items-center gap-1">
+                                            <span class="material-symbols-outlined text-[14px]">schedule</span>
+                                            4 min read • Oct 05, 2023
+                                        </span>
+                                    </div>
+                                    <h2
+                                        class="text-xl font-bold leading-tight text-[#0d121b] dark:text-white mb-2 group-hover:text- transition-colors">
+                                        Microcopy: The Hidden Art of UI Communication</h2>
+                                    <p class="text-[#4c669a] dark:text-gray-400 text-sm leading-relaxed mb-4">
+                                        Why the small words matter. Learn how to write effective tooltips, error
+                                        messages, and call-to-actions that convert users.
+                                    </p>
+                                </div>
+                                <div class="flex items-center justify-between mt-auto">
+                                    <div class="flex items-center gap-2">
+                                        <div class="h-6 w-6 rounded-full bg-/20 flex items-center justify-center">
+                                            <span class="material-symbols-outlined text-[16px] text-">person</span>
+                                        </div>
+                                        <span class="text-xs font-medium text-[#0d121b] dark:text-gray-300">Marcus
+                                            Wright</span>
+                                    </div>
+                                    <button
+                                        class="flex items-center gap-1.5 px-4 py-1.5 bg- text-white rounded-lg text-xs font-bold hover:bg-/90 transition-all">
+                                        <span class="material-symbols-outlined text-[16px]">abc</span>
+                                        Check Grammar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Ad Placement Between Cards -->
+                    <div
+                        class="w-full h-[120px] bg-[#e7ebf3] dark:bg-[#1f2937] rounded-xl flex flex-col items-center justify-center border border-dashed border-[#cbd5e1] dark:border-[#374151]">
+                        <span class="text-[9px] font-bold text-[#4c669a] uppercase mb-1">Advertisement</span>
+                        <div class="text-[#4c669a] text-xs font-medium italic">Your specialized Ad slot here</div>
+                    </div>
+                    <!-- Card 4 -->
+                    <article
+                        class="group bg-white dark:bg-[#1a2234] rounded-xl border border-[#e7ebf3] dark:border-[#2d3748] overflow-hidden hover:shadow-xl transition-all duration-300">
+                        <div class="flex flex-col md:flex-row h-full">
+                            <div class="md:w-1/3 overflow-hidden">
+                                <div class="h-full min-h-[200px] bg-center bg-no-repeat bg-cover transition-transform duration-500 group-hover:scale-105"
+                                    data-alt="Close up of computer monitor with dark themed code editor"
+                                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuChCrjYZkKOCPLKNdtRrjMilwfSgtAgrGDB978x0ISr53BhDYby8vunBm_TgSc4ddTLRymFj79L4IRzWHJbgIJ9SkROOR16u17qeVPj2OvYP8KkZsSzFEeYM1ytIHrDKS--2kR1cWsSRGmoh1dW5846UPab6t8hg8M_H5OBJry75OlU6_5DAF7hi8qYeTFnmgKPBixF1qBYYE2r0CxQk4rQGM476ldBOHjRBBD4AxuQ9c7FKitbU2KtSYDadLZiLGi-nUS9zenB0u6x");'>
+                                </div>
+                            </div>
+                            <div class="p-6 md:w-2/3 flex flex-col justify-between">
+                                <div>
+                                    <div class="flex items-center gap-2 mb-3">
+                                        <span
+                                            class="bg-[#10b981]/10 text-[#10b981] text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full">Development</span>
+                                        <span class="text-[#4c669a] text-xs flex items-center gap-1">
+                                            <span class="material-symbols-outlined text-[14px]">schedule</span>
+                                            12 min read • Sep 28, 2023
+                                        </span>
+                                    </div>
+                                    <h2
+                                        class="text-xl font-bold leading-tight text-[#0d121b] dark:text-white mb-2 group-hover:text- transition-colors">
+                                        State Management in 2024: Beyond Redux</h2>
+                                    <p class="text-[#4c669a] dark:text-gray-400 text-sm leading-relaxed mb-4">
+                                        Exploring the modern landscape of React state management. A deep dive into
+                                        Zustand, Jotai, and Signals for lightweight applications.
+                                    </p>
+                                </div>
+                                <div class="flex items-center justify-between mt-auto">
+                                    <div class="flex items-center gap-2">
+                                        <div class="h-6 w-6 rounded-full bg-/20 flex items-center justify-center">
+                                            <span class="material-symbols-outlined text-[16px] text-">person</span>
+                                        </div>
+                                        <span class="text-xs font-medium text-[#0d121b] dark:text-gray-300">Emily
+                                            Thorne</span>
+                                    </div>
+                                    <button
+                                        class="flex items-center gap-1.5 px-4 py-1.5 bg- text-white rounded-lg text-xs font-bold hover:bg-/90 transition-all">
+                                        <span class="material-symbols-outlined text-[16px]">code</span>
+                                        Code Beautifier
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+                <!-- Pagination -->
+                <nav class="mt-12 flex items-center justify-center gap-2">
+                    <button
+                        class="p-2 rounded-lg border border-[#e7ebf3] dark:border-[#2d3748] hover:bg-[#e7ebf3] dark:hover:bg-[#1f2937] text-[#0d121b] dark:text-white">
+                        <span class="material-symbols-outlined">chevron_left</span>
+                    </button>
+                    <button class="h-10 w-10 rounded-lg bg- text-white font-bold text-sm">1</button>
+                    <button
+                        class="h-10 w-10 rounded-lg border border-[#e7ebf3] dark:border-[#2d3748] hover:bg-[#e7ebf3] dark:hover:bg-[#1f2937] text-[#0d121b] dark:text-white font-medium text-sm">2</button>
+                    <button
+                        class="h-10 w-10 rounded-lg border border-[#e7ebf3] dark:border-[#2d3748] hover:bg-[#e7ebf3] dark:hover:bg-[#1f2937] text-[#0d121b] dark:text-white font-medium text-sm">3</button>
+                    <span class="px-2 text-[#4c669a]">...</span>
+                    <button
+                        class="h-10 w-10 rounded-lg border border-[#e7ebf3] dark:border-[#2d3748] hover:bg-[#e7ebf3] dark:hover:bg-[#1f2937] text-[#0d121b] dark:text-white font-medium text-sm">12</button>
+                    <button
+                        class="p-2 rounded-lg border border-[#e7ebf3] dark:border-[#2d3748] hover:bg-[#e7ebf3] dark:hover:bg-[#1f2937] text-[#0d121b] dark:text-white">
+                        <span class="material-symbols-outlined">chevron_right</span>
+                    </button>
+                </nav>
+                <!-- Bottom AdSense (Horizontal) -->
+                <div
+                    class="mt-16 w-full h-[250px] bg-[#e7ebf3] dark:bg-[#1f2937] rounded-xl flex items-center justify-center border border-[#cbd5e1] dark:border-[#374151]">
+                    <span class="text-[10px] font-bold text-[#4c669a] uppercase">Advertisement: Leaderboard Unit</span>
+                </div>
+            </div>
+        </main>
+        <!-- Footer -->
+        <footer class="mt-auto border-t border-[#e7ebf3] dark:border-[#2d3748] bg-white dark:bg-[#0d121b] py-12">
+            <div class="mx-auto max-w-[1280px] px-6">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+                    <div class="col-span-2">
+                        <div class="flex items-center gap-3 text- mb-6">
+                            <div class="size-6">
+                                <svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M24 4C25.7818 14.2173 33.7827 22.2182 44 24C33.7827 25.7818 25.7818 33.7827 24 44C22.2182 33.7827 14.2173 25.7818 4 24C14.2173 22.2182 22.2182 14.2173 24 4Z"
+                                        fill="currentColor"></path>
+                                </svg>
+                            </div>
+                            <h2 class="text-xl font-bold tracking-tight text-[#0d121b] dark:text-white">DevTools</h2>
+                        </div>
+                        <p class="text-[#4c669a] text-sm max-w-sm mb-6">Empowering developers with professional-grade
+                            tools and expert-led education to build the modern web faster.</p>
+                        <div class="flex gap-4">
+                            <a class="text-[#4c669a] hover:text- transition-colors" href="#"><span
+                                    class="material-symbols-outlined">alternate_email</span></a>
+                            <a class="text-[#4c669a] hover:text- transition-colors" href="#"><span
+                                    class="material-symbols-outlined">hub</span></a>
+                            <a class="text-[#4c669a] hover:text- transition-colors" href="#"><span
+                                    class="material-symbols-outlined">rss_feed</span></a>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-bold text-[#0d121b] dark:text-white mb-4">Resources</h4>
+                        <ul class="flex flex-col gap-2 text-sm text-[#4c669a]">
+                            <li><a class="hover:text-" href="#">Free Tools</a></li>
+                            <li><a class="hover:text-" href="#">Guides</a></li>
+                            <li><a class="hover:text-" href="#">Tutorials</a></li>
+                            <li><a class="hover:text-" href="#">Open Source</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-bold text-[#0d121b] dark:text-white mb-4">Company</h4>
+                        <ul class="flex flex-col gap-2 text-sm text-[#4c669a]">
+                            <li><a class="hover:text-" href="#">About Us</a></li>
+                            <li><a class="hover:text-" href="#">Newsletter</a></li>
+                            <li><a class="hover:text-" href="#">Privacy Policy</a></li>
+                            <li><a class="hover:text-" href="#">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div
+                    class="pt-8 border-t border-[#e7ebf3] dark:border-[#2d3748] flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-xs text-[#4c669a]">© 2023 DevTools Blog. Built for professionals.</p>
+                    <div class="flex items-center gap-6">
+                        <span class="text-xs text-[#4c669a] flex items-center gap-1">
+                            <span class="material-symbols-outlined text-[14px]">language</span> English (US)
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

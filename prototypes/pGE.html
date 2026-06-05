@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>JSON Formatter &amp; Validator | DevTools Pro</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+    <!-- Top Navigation Bar -->
+    <header
+        class="border-b border-solid border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 sticky top-0 z-50">
+        <div class="max-w-[1200px] mx-auto px-4 lg:px-10 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-8">
+                <div class="flex items-center gap-2 text-">
+                    <span class="material-symbols-outlined text-3xl">terminal</span>
+                    <h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-tight">DevTools
+                        Pro</h2>
+                </div>
+                <nav class="hidden md:flex items-center gap-8">
+                    <a class="text-slate-600 dark:text-slate-300 text-sm font-medium hover:text- transition-colors"
+                        href="#">Tools</a>
+                    <a class="text-slate-600 dark:text-slate-300 text-sm font-medium hover:text- transition-colors"
+                        href="#">Blog</a>
+                    <a class="text-slate-600 dark:text-slate-300 text-sm font-medium hover:text- transition-colors"
+                        href="#">API</a>
+                </nav>
+            </div>
+            <div class="flex items-center gap-4">
+                <div
+                    class="hidden sm:flex bg-slate-100 dark:bg-slate-800 rounded-lg px-3 py-1.5 items-center gap-2 w-48 lg:w-64 border border-transparent focus-within:border- transition-all">
+                    <span class="material-symbols-outlined text-slate-400 text-xl">search</span>
+                    <input class="bg-transparent border-none focus:ring-0 p-0 text-sm placeholder-slate-400 w-full"
+                        placeholder="Search tools..." />
+                </div>
+                <button
+                    class="bg- text-white text-sm font-bold h-10 px-6 rounded-lg hover:bg-blue-700 transition-colors">Sign
+                    Up</button>
+            </div>
+        </div>
+    </header>
+    <main class="max-w-[1200px] mx-auto px-4 lg:px-10 py-6">
+        <!-- Breadcrumbs -->
+        <nav class="flex items-center gap-2 mb-6">
+            <a class="text-slate-500 dark:text-slate-400 text-sm font-medium hover:text-" href="#">Home</a>
+            <span class="material-symbols-outlined text-slate-400 text-sm">chevron_right</span>
+            <a class="text-slate-500 dark:text-slate-400 text-sm font-medium hover:text-" href="#">Developer Tools</a>
+            <span class="material-symbols-outlined text-slate-400 text-sm">chevron_right</span>
+            <span class="text-slate-900 dark:text-white text-sm font-semibold">JSON Formatter</span>
+        </nav>
+        <!-- Page Heading -->
+        <div class="mb-8">
+            <h1 class="text-slate-900 dark:text-white text-4xl font-black leading-tight tracking-tight mb-3">JSON
+                Formatter &amp; Validator</h1>
+            <p class="text-slate-500 dark:text-slate-400 text-lg max-w-2xl">Clean, format, and validate your JSON data
+                instantly. Our tool makes unreadable minified code beautiful and easy to debug.</p>
+        </div>
+        <!-- Ad Slot Top -->
+        <div
+            class="mb-8 bg-slate-100 dark:bg-slate-800/50 border-2 border-dashed border-slate-200 dark:border-slate-700 rounded-xl p-4 flex flex-col items-center justify-center min-h-[120px]">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Advertisement</span>
+            <div
+                class="w-full max-w-[728px] h-[90px] bg-slate-200 dark:bg-slate-700 rounded flex items-center justify-center">
+                <p class="text-slate-400 text-sm">Ad Slot - Desktop Leaderboard</p>
+            </div>
+        </div>
+        <!-- Tool Workbench Section -->
+        <div class="grid grid-cols-1 gap-6 mb-12">
+            <!-- Input Area -->
+            <div
+                class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-sm">
+                <div
+                    class="bg-slate-50 dark:bg-slate-800/50 px-4 py-3 border-b border-slate-200 dark:border-slate-800 flex justify-between items-center">
+                    <h3 class="text-slate-700 dark:text-slate-200 font-bold flex items-center gap-2">
+                        <span class="material-symbols-outlined text-">data_object</span>
+                        Input JSON
+                    </h3>
+                    <div class="flex gap-2">
+                        <button
+                            class="text-xs px-2 py-1 bg-slate-200 dark:bg-slate-700 rounded hover:bg-slate-300 transition-colors">Sample
+                            JSON</button>
+                    </div>
+                </div>
+                <textarea
+                    class="w-full h-64 p-4 font-mono text-sm bg-transparent border-none focus:ring-0 resize-y text-slate-800 dark:text-slate-300"
+                    placeholder='{"paste": "your", "json": "here"}'></textarea>
+            </div>
+            <!-- Central Control Bar -->
+            <div class="flex flex-wrap items-center justify-center gap-4 py-2">
+                <button
+                    class="bg- text-white px-8 py-3 rounded-xl font-bold flex items-center gap-2 hover:bg-blue-700 shadow-lg shadow-/20 transition-all">
+                    <span class="material-symbols-outlined">auto_fix_high</span>
+                    Format JSON
+                </button>
+                <button
+                    class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 px-6 py-3 rounded-xl font-bold flex items-center gap-2 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all">
+                    <span class="material-symbols-outlined">compress</span>
+                    Minify
+                </button>
+                <button
+                    class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-red-600 px-6 py-3 rounded-xl font-bold flex items-center gap-2 hover:bg-red-50 dark:hover:bg-red-900/20 transition-all">
+                    <span class="material-symbols-outlined text-[20px]">delete</span>
+                    Clear
+                </button>
+            </div>
+            <!-- Output Area -->
+            <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-sm">
+                <div class="bg-slate-800 px-4 py-3 border-b border-slate-700 flex justify-between items-center">
+                    <h3 class="text-white font-bold flex items-center gap-2">
+                        <span class="material-symbols-outlined text-green-400">check_circle</span>
+                        Output Result
+                    </h3>
+                    <button
+                        class="bg-slate-700 text-white text-xs px-3 py-1.5 rounded-lg flex items-center gap-1 hover:bg-slate-600 transition-colors">
+                        <span class="material-symbols-outlined text-sm">content_copy</span>
+                        Copy to Clipboard
+                    </button>
+                </div>
+                <div class="p-4 h-64 font-mono text-sm text-green-400 overflow-auto whitespace-pre">
+                    <span class="text-pink-400">{</span>
+                    <span class="text-blue-300">"status"</span>: <span class="text-orange-300">"success"</span>,
+                    <span class="text-blue-300">"message"</span>: <span class="text-orange-300">"JSON is valid and
+                        formatted"</span>,
+                    <span class="text-blue-300">"data"</span>: <span class="text-pink-400">{</span>
+                    <span class="text-blue-300">"id"</span>: <span class="text-yellow-400">101</span>,
+                    <span class="text-blue-300">"features"</span>: <span class="text-pink-400">[</span><span
+                        class="text-orange-300">"Syntax Highlighting"</span>, <span
+                        class="text-orange-300">"Auto-Correction"</span><span class="text-pink-400">]</span>
+                    <span class="text-pink-400">}</span>
+                    <span class="text-pink-400">}</span>
+                </div>
+            </div>
+        </div>
+        <!-- SEO Content Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 border-t border-slate-200 dark:border-slate-800 pt-12 mb-16">
+            <div class="lg:col-span-2 space-y-6">
+                <section>
+                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Why use a JSON Formatter?</h2>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                        JSON (JavaScript Object Notation) is the standard for data exchange across the modern web.
+                        However, to save bandwidth, APIs often return minified JSON that is nearly impossible for humans
+                        to read. Our <strong>JSON Formatter</strong> tool solves this by adding proper indentation and
+                        line breaks.
+                    </p>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Whether you are debugging a complex API response or preparing configuration files, our tool
+                        provides a clean, professional environment for your data. We also validate your JSON in
+                        real-time, highlighting syntax errors like missing commas or mismatched brackets.
+                    </p>
+                </section>
+                <!-- FAQ Accordion -->
+                <section>
+                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-6">Frequently Asked Questions</h2>
+                    <div class="space-y-4">
+                        <details
+                            class="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl"
+                            open="">
+                            <summary
+                                class="list-none p-4 font-bold text-slate-800 dark:text-slate-200 cursor-pointer flex justify-between items-center">
+                                Is my data secure?
+                                <span
+                                    class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+                            </summary>
+                            <div class="px-4 pb-4 text-slate-600 dark:text-slate-400 text-sm">
+                                Yes. All processing is done locally in your browser. Your JSON data is never uploaded to
+                                our servers, ensuring your sensitive information stays private.
+                            </div>
+                        </details>
+                        <details
+                            class="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl">
+                            <summary
+                                class="list-none p-4 font-bold text-slate-800 dark:text-slate-200 cursor-pointer flex justify-between items-center">
+                                What is the difference between Formatting and Minifying?
+                                <span
+                                    class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+                            </summary>
+                            <div class="px-4 pb-4 text-slate-600 dark:text-slate-400 text-sm">
+                                Formatting adds whitespace and indentation for human readability. Minifying removes all
+                                unnecessary spaces and line breaks to reduce file size for production usage.
+                            </div>
+                        </details>
+                        <details
+                            class="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl">
+                            <summary
+                                class="list-none p-4 font-bold text-slate-800 dark:text-slate-200 cursor-pointer flex justify-between items-center">
+                                Does this tool support large JSON files?
+                                <span
+                                    class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+                            </summary>
+                            <div class="px-4 pb-4 text-slate-600 dark:text-slate-400 text-sm">
+                                Our tool can handle files up to 5MB smoothly. For larger files, we recommend using a
+                                desktop IDE for better performance.
+                            </div>
+                        </details>
+                    </div>
+                </section>
+            </div>
+            <!-- Sidebar Ad / Widgets -->
+            <div class="space-y-8">
+                <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6">
+                    <h4 class="font-bold text-slate-900 dark:text-white mb-4">Related Tools</h4>
+                    <ul class="space-y-3">
+                        <li><a class="text-sm text- hover:underline flex items-center gap-2" href="#"><span
+                                    class="material-symbols-outlined text-sm">code</span>XML Formatter</a></li>
+                        <li><a class="text-sm text- hover:underline flex items-center gap-2" href="#"><span
+                                    class="material-symbols-outlined text-sm">javascript</span>JS Beautifier</a></li>
+                        <li><a class="text-sm text- hover:underline flex items-center gap-2" href="#"><span
+                                    class="material-symbols-outlined text-sm">css</span>CSS Minifier</a></li>
+                        <li><a class="text-sm text- hover:underline flex items-center gap-2" href="#"><span
+                                    class="material-symbols-outlined text-sm">html</span>HTML Entity Encoder</a></li>
+                    </ul>
+                </div>
+                <div
+                    class="bg-slate-100 dark:bg-slate-800/50 border-2 border-dashed border-slate-200 dark:border-slate-700 rounded-xl p-4 flex flex-col items-center justify-center min-h-[300px]">
+                    <span class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Advertisement</span>
+                    <div
+                        class="w-full max-w-[300px] h-[250px] bg-slate-200 dark:bg-slate-700 rounded flex items-center justify-center text-center px-4">
+                        <p class="text-slate-400 text-sm italic">Ad Slot - Medium Rectangle</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Related Guides / Blog Grid -->
+        <section class="border-t border-slate-200 dark:border-slate-800 pt-12 mb-20">
+            <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-8">Latest Developer Guides</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Blog Card 1 -->
+                <div
+                    class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden group hover:shadow-lg transition-shadow">
+                    <div class="aspect-video bg-cover bg-center" data-alt="Abstract colorful code lines pattern"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAo2L7q-puwwDZKY6_AMfopfbGf5IOcaOyumx6B6QvXh6dDEX8KPH2FpDYVKz0CnSILs6axYfspDH7tOWQT0KMbDoukrv3OBt8aKBBJV6Bor1TNAbtguDjalAGEWy9xWkzWRifvvbi5JC5CkGmAZa0lxABWQ5-ijq-ybl5qWD4FRy5rpJnAYYcYjY4ntJIoRJp8Vx53RaPp1rnwo-kTNGnY3hWXHH0RBcVisdRCTmu1DIdTOB0PE-MXqOc2o7dejpu9lyZl9jmSwyS7');">
+                    </div>
+                    <div class="p-5">
+                        <span class="text- text-xs font-bold uppercase">Tutorial</span>
+                        <h3 class="font-bold text-lg mt-2 mb-2 group-hover:text- transition-colors">Mastering JSON Data
+                            Structures</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm line-clamp-2">Learn the fundamental rules
+                            of JSON and how to structure your data for high-performance APIs.</p>
+                        <div class="mt-4 flex items-center gap-2 text-slate-400 text-xs">
+                            <span class="material-symbols-outlined text-sm">calendar_today</span>
+                            Oct 24, 2023
+                        </div>
+                    </div>
+                </div>
+                <!-- Blog Card 2 -->
+                <div
+                    class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden group hover:shadow-lg transition-shadow">
+                    <div class="aspect-video bg-cover bg-center" data-alt="Dark aesthetic coding workstation setup"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDgwxJ9pjzal63y8awRBoIaABL_fJbXYGljGnVvIZlqH2UiPcrvUkH_qESKROpwYI8YSutvYbj8v9JJqj-pEekiFxFzQ3tnZeEcYGNGe8SMnbTlKzPgmiK8JtBOQIQUgBDfqkyVJ6oKKX4ux10GhscdlhzaAD_vges7cmNxTV9xOoxEVooUWtICcL1MelFp5qd_UNrxbfJvmQE-1ihXD9y0UCa3jn5WZr4kqvD9aQPCpkLE3XNk_097lu4S1XeICi3vcsBBcQdJjGJb');">
+                    </div>
+                    <div class="p-5">
+                        <span class="text- text-xs font-bold uppercase">Optimization</span>
+                        <h3 class="font-bold text-lg mt-2 mb-2 group-hover:text- transition-colors">JSON vs XML: Which
+                            one to choose?</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm line-clamp-2">A deep dive comparison
+                            between JSON and XML for modern web application development.</p>
+                        <div class="mt-4 flex items-center gap-2 text-slate-400 text-xs">
+                            <span class="material-symbols-outlined text-sm">calendar_today</span>
+                            Oct 18, 2023
+                        </div>
+                    </div>
+                </div>
+                <!-- Blog Card 3 -->
+                <div
+                    class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden group hover:shadow-lg transition-shadow">
+                    <div class="aspect-video bg-cover bg-center" data-alt="Abstract futuristic technology grid pattern"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDOzFgcJvUz2bLFvEcoPV3oaI688-Jkpp9WiM8KYdhka2fwyg1GoCLMIQ27_cutnTi1Ie3sGFfv8OFiLkKm6YUlrhnMEb2O0Ajld-YVh4o6dEFeS61pB7vWI9zpAxo34gAguGsXhvFVZVbkzTYzEvGHSujQ09EmgHV5mLtWdumpdkij0xp2wpmGH1PRbnauW-TrtpRJANb-O522tZ8A_0Z9zCAAk9MzMeUZ_PQx4asVK59fJk0MFSrPljGHzM24IDz5-7sEyc2GQR5w');">
+                    </div>
+                    <div class="p-5">
+                        <span class="text- text-xs font-bold uppercase">Security</span>
+                        <h3 class="font-bold text-lg mt-2 mb-2 group-hover:text- transition-colors">Safe Parsing of
+                            Untrusted JSON</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm line-clamp-2">Avoid common security
+                            pitfalls when parsing JSON data from external API providers.</p>
+                        <div class="mt-4 flex items-center gap-2 text-slate-400 text-xs">
+                            <span class="material-symbols-outlined text-sm">calendar_today</span>
+                            Oct 12, 2023
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-12">
+        <div class="max-w-[1200px] mx-auto px-4 lg:px-10 grid grid-cols-1 md:grid-cols-4 gap-10">
+            <div class="col-span-1 md:col-span-1">
+                <div class="flex items-center gap-2 text- mb-6">
+                    <span class="material-symbols-outlined text-2xl">terminal</span>
+                    <h2 class="text-slate-900 dark:text-white text-lg font-bold">DevTools Pro</h2>
+                </div>
+                <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                    A suite of high-performance tools for developers, designers, and web professionals.
+                </p>
+            </div>
+            <div>
+                <h4 class="font-bold text-slate-900 dark:text-white mb-6">Tools</h4>
+                <ul class="space-y-4 text-sm text-slate-500 dark:text-slate-400">
+                    <li><a class="hover:text-" href="#">JSON Formatter</a></li>
+                    <li><a class="hover:text-" href="#">Base64 Encoder</a></li>
+                    <li><a class="hover:text-" href="#">URL Parser</a></li>
+                    <li><a class="hover:text-" href="#">Hash Generator</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-slate-900 dark:text-white mb-6">Resources</h4>
+                <ul class="space-y-4 text-sm text-slate-500 dark:text-slate-400">
+                    <li><a class="hover:text-" href="#">Documentation</a></li>
+                    <li><a class="hover:text-" href="#">API Status</a></li>
+                    <li><a class="hover:text-" href="#">Blog</a></li>
+                    <li><a class="hover:text-" href="#">Guides</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-slate-900 dark:text-white mb-6">Company</h4>
+                <ul class="space-y-4 text-sm text-slate-500 dark:text-slate-400">
+                    <li><a class="hover:text-" href="#">About Us</a></li>
+                    <li><a class="hover:text-" href="#">Privacy Policy</a></li>
+                    <li><a class="hover:text-" href="#">Terms of Service</a></li>
+                    <li><a class="hover:text-" href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div
+            class="max-w-[1200px] mx-auto px-4 lg:px-10 mt-12 pt-8 border-t border-slate-100 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-slate-400 text-sm">© 2024 DevTools Pro. All rights reserved.</p>
+            <div class="flex gap-6">
+                <a class="text-slate-400 hover:text-" href="#"><span class="material-symbols-outlined">share</span></a>
+                <a class="text-slate-400 hover:text-" href="#"><span
+                        class="material-symbols-outlined">rss_feed</span></a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

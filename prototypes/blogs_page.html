@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Blog Detail: SEO Best Practices Guide | SEOPro Tools</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-[#0d121b] dark:text-gray-100">
+    <!-- Top Navigation Bar -->
+    <header
+        class="sticky top-0 z-50 bg-white dark:bg-background-dark border-b border-solid border-[#e7ebf3] dark:border-gray-800 px-6 md:px-10 py-3">
+        <div class="max-w-[1200px] mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-8">
+                <div class="flex items-center gap-3 text-">
+                    <div class="size-8">
+                        <svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M13.8261 30.5736C16.7203 29.8826 20.2244 29.4783 24 29.4783C27.7756 29.4783 31.2797 29.8826 34.1739 30.5736C36.9144 31.2278 39.9967 32.7669 41.3563 33.8352L24.8486 7.36089C24.4571 6.73303 23.5429 6.73303 23.1514 7.36089L6.64374 33.8352C8.00331 32.7669 11.0856 31.2278 13.8261 30.5736Z"
+                                fill="currentColor"></path>
+                            <path clip-rule="evenodd"
+                                d="M39.998 35.764C39.9944 35.7463 39.9875 35.7155 39.9748 35.6706C39.9436 35.5601 39.8949 35.4259 39.8346 35.2825C39.8168 35.2403 39.7989 35.1993 39.7813 35.1602C38.5103 34.2887 35.9788 33.0607 33.7095 32.5189C30.9875 31.8691 27.6413 31.4783 24 31.4783C20.3587 31.4783 17.0125 31.8691 14.2905 32.5189C12.0012 33.0654 9.44505 34.3104 8.18538 35.1832C8.17384 35.2075 8.16216 35.233 8.15052 35.2592C8.09919 35.3751 8.05721 35.4886 8.02977 35.589C8.00356 35.6848 8.00039 35.7333 8.00004 35.7388C8.00004 35.739 8 35.7393 8.00004 35.7388C8.00004 35.7641 8.0104 36.0767 8.68485 36.6314C9.34546 37.1746 10.4222 37.7531 11.9291 38.2772C14.9242 39.319 19.1919 40 24 40C28.8081 40 33.0758 39.319 36.0709 38.2772C37.5778 37.7531 38.6545 37.1746 39.3151 36.6314C39.9006 36.1499 39.9857 35.8511 39.998 35.764ZM4.95178 32.7688L21.4543 6.30267C22.6288 4.4191 25.3712 4.41909 26.5457 6.30267L43.0534 32.777C43.0709 32.8052 43.0878 32.8338 43.104 32.8629L41.3563 33.8352C43.104 32.8629 43.1038 32.8626 43.104 32.8629L43.1051 32.865L43.1065 32.8675L43.1101 32.8739L43.1199 32.8918C43.1276 32.906 43.1377 32.9246 43.1497 32.9473C43.1738 32.9925 43.2062 33.0545 43.244 33.1299C43.319 33.2792 43.4196 33.489 43.5217 33.7317C43.6901 34.1321 44 34.9311 44 35.7391C44 37.4427 43.003 38.7775 41.8558 39.7209C40.6947 40.6757 39.1354 41.4464 37.385 42.0552C33.8654 43.2794 29.133 44 24 44C18.867 44 14.1346 43.2794 10.615 42.0552C8.86463 41.4464 7.30529 40.6757 6.14419 39.7209C4.99695 38.7775 3.99999 37.4427 3.99999 35.7391C3.99999 34.8725 4.29264 34.0922 4.49321 33.6393C4.60375 33.3898 4.71348 33.1804 4.79687 33.0311C4.83898 32.9556 4.87547 32.8935 4.9035 32.8471C4.91754 32.8238 4.92954 32.8043 4.93916 32.7889L4.94662 32.777L4.95178 32.7688ZM35.9868 29.004L24 9.77997L12.0131 29.004C12.4661 28.8609 12.9179 28.7342 13.3617 28.6282C16.4281 27.8961 20.0901 27.4783 24 27.4783C27.9099 27.4783 31.5719 27.8961 34.6383 28.6282C35.082 28.7342 35.5339 28.8609 35.9868 29.004Z"
+                                fill="currentColor" fill-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <h2 class="text-xl font-bold tracking-tight">SEOPro Tools</h2>
+                </div>
+                <nav class="hidden md:flex items-center gap-6">
+                    <a class="text-sm font-semibold hover:text- transition-colors" href="#">Tools</a>
+                    <a class="text-sm font-semibold text-" href="#">Blog</a>
+                    <a class="text-sm font-semibold hover:text- transition-colors" href="#">Pricing</a>
+                    <a class="text-sm font-semibold hover:text- transition-colors" href="#">About</a>
+                </nav>
+            </div>
+            <div class="flex items-center gap-4">
+                <label
+                    class="hidden sm:flex items-center rounded-lg bg-[#e7ebf3] dark:bg-gray-800 px-3 py-1.5 h-10 w-48 lg:w-64">
+                    <span class="material-symbols-outlined text-gray-500 text-[20px]">search</span>
+                    <input class="bg-transparent border-none focus:ring-0 text-sm w-full placeholder:text-gray-500"
+                        placeholder="Search guides..." type="text" />
+                </label>
+                <button
+                    class="bg- text-white text-sm font-bold px-5 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                    Sign In
+                </button>
+            </div>
+        </div>
+        <!-- Progress Bar (Sticky Top) -->
+        <div class="absolute bottom-0 left-0 w-full h-[3px] bg-gray-100 dark:bg-gray-800">
+            <div class="h-full bg-" style="width: 35%;"></div>
+        </div>
+    </header>
+    <main class="max-w-[1200px] mx-auto px-4 md:px-10 py-8">
+        <!-- Breadcrumbs -->
+        <div class="flex items-center gap-2 mb-6">
+            <a class="text-[#4c669a] dark:text-gray-400 text-sm font-medium flex items-center gap-1" href="#">
+                <span class="material-symbols-outlined text-[16px]">home</span> Home
+            </a>
+            <span class="text-[#4c669a] text-sm">/</span>
+            <a class="text-[#4c669a] dark:text-gray-400 text-sm font-medium" href="#">Blog</a>
+            <span class="text-[#4c669a] text-sm">/</span>
+            <span class="text-[#0d121b] dark:text-white text-sm font-medium">SEO Guides</span>
+        </div>
+        <div class="flex flex-col lg:flex-row gap-12">
+            <!-- Main Content -->
+            <div class="flex-1 max-w-full lg:max-w-[800px]">
+                <!-- Article Header -->
+                <h1 class="text-[#0d121b] dark:text-white text-3xl md:text-4xl font-extrabold leading-tight mb-6">
+                    The Definitive SEO Best Practices Guide for Developers (2024)
+                </h1>
+                <!-- Author Meta -->
+                <div
+                    class="flex items-center justify-between border-b border-t border-gray-200 dark:border-gray-800 py-4 mb-8">
+                    <div class="flex items-center gap-3">
+                        <div class="size-12 rounded-full bg-cover bg-center"
+                            data-alt="Professional headshot of Jane Doe author"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDbpNbvOBilhSfhv4dp5YQ0nFgzHr9P9T5Y5MtN61cbfhCh5qqxpFl5ZHf9e97083TcxBKrJYye2afsZZSU2yVR4z-ULrZah1-GDLXwMf1yizlyMxglExmIG7TkHWz1j7RXKB4CrQTyhILlg5KprXn0DWuaXD0SagdY_yAIqNJBfPr8f3U7WVesK7mxUdgo7hAW4XFkXEwewduGlD4Sex3YUHjYeP4XAiefqa7I2n3jMZn8KaJFKgMGijlr2SM1iJ9ueN4yRFlTojDP");'>
+                        </div>
+                        <div class="flex flex-col">
+                            <p class="text-[#0d121b] dark:text-white text-base font-semibold">Jane Doe</p>
+                            <p class="text-[#4c669a] dark:text-gray-400 text-xs">Updated: Oct 24, 2023 • 8 min read</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-2">
+                        <button
+                            class="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors text-gray-600 dark:text-gray-400">
+                            <span class="material-symbols-outlined">share</span>
+                        </button>
+                        <button
+                            class="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors text-gray-600 dark:text-gray-400">
+                            <span class="material-symbols-outlined">bookmark</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- Ad Slot Top -->
+                <div
+                    class="w-full bg-gray-100 dark:bg-gray-900 border-2 border-dashed border-gray-300 dark:border-gray-700 rounded-lg h-32 flex flex-col items-center justify-center mb-10 overflow-hidden relative">
+                    <span class="text-xs uppercase tracking-widest text-gray-400 font-bold mb-1">Advertisement</span>
+                    <div class="text-gray-500 font-medium">Top Banner Ad Space</div>
+                    <div class="absolute top-0 right-0 p-1">
+                        <span class="material-symbols-outlined text-[14px] text-gray-400">info</span>
+                    </div>
+                </div>
+                <!-- Article Content -->
+                <article class="prose prose-blue max-w-none dark:prose-invert">
+                    <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
+                        As a developer, SEO is often thought of as a marketing responsibility. However, the modern web
+                        requires technical excellence from the ground up. In 2024, search engines prioritize user
+                        experience metrics more than ever. This guide covers the essential technical foundations you
+                        need to master.
+                    </p>
+                    <h2 class="text-2xl font-bold mt-10 mb-4 flex items-center gap-2">
+                        <span class="bg-/10 text- p-1 rounded"><span
+                                class="material-symbols-outlined text-[20px]">bolt</span></span>
+                        Core Web Vitals &amp; Technical Performance
+                    </h2>
+                    <p class="mb-4">
+                        Search engine algorithms now directly factor in your site's performance through Core Web Vitals
+                        (CWV). These metrics measure loading speed, interactivity, and visual stability.
+                    </p>
+                    <ul class="list-disc pl-6 space-y-3 mb-8">
+                        <li><strong>Largest Contentful Paint (LCP):</strong> Keep this under 2.5 seconds.</li>
+                        <li><strong>First Input Delay (FID):</strong> Aim for less than 100 milliseconds.</li>
+                        <li><strong>Cumulative Layout Shift (CLS):</strong> Maintain a score of less than 0.1.</li>
+                    </ul>
+                    <!-- Inline Ad Slot -->
+                    <div
+                        class="my-10 bg-[#f8f9fc] dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-6 flex flex-col items-center">
+                        <p class="text-[10px] text-gray-400 uppercase font-bold mb-4 tracking-wider">In-Article
+                            Advertisement</p>
+                        <div
+                            class="w-full max-w-[600px] h-[250px] bg-white dark:bg-black rounded border border-gray-100 dark:border-gray-800 shadow-sm flex items-center justify-center text-gray-400 italic">
+                            Ads by Google
+                        </div>
+                    </div>
+                    <h2 class="text-2xl font-bold mt-10 mb-4 flex items-center gap-2">
+                        <span class="bg-/10 text- p-1 rounded"><span
+                                class="material-symbols-outlined text-[20px]">code</span></span>
+                        Semantic HTML and Metadata
+                    </h2>
+                    <p class="mb-4 text-gray-700 dark:text-gray-300">
+                        Using semantic tags like <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>, and
+                        <code>&lt;header&gt;</code> helps crawlers understand the hierarchy of your content. Don't
+                        forget proper <code>alt</code> attributes for images and structured data using JSON-LD.
+                    </p>
+                    <div class="bg-/5 border-l-4 border- p-6 rounded-r-lg mb-8 italic text-gray-800 dark:text-gray-200">
+                        "Developer-led SEO is the most efficient way to scale organic growth for technical products."
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Optimizing for Mobile-First Indexing</h3>
+                    <p class="text-gray-700 dark:text-gray-300 mb-6">
+                        Google primarily uses the mobile version of a site's content for indexing and ranking. If your
+                        mobile site has less content than your desktop site, you're likely losing traffic. Ensure your
+                        responsive design doesn't hide critical SEO text or links on smaller screens.
+                    </p>
+                </article>
+                <!-- Tags -->
+                <div class="flex flex-wrap gap-2 mt-12 pb-8 border-b border-gray-100 dark:border-gray-800">
+                    <span
+                        class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-xs font-semibold text-gray-600 dark:text-gray-400 cursor-pointer hover:bg- hover:text-white transition-all">#TechnicalSEO</span>
+                    <span
+                        class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-xs font-semibold text-gray-600 dark:text-gray-400 cursor-pointer hover:bg- hover:text-white transition-all">#DevTips</span>
+                    <span
+                        class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-xs font-semibold text-gray-600 dark:text-gray-400 cursor-pointer hover:bg- hover:text-white transition-all">#CoreWebVitals</span>
+                </div>
+            </div>
+            <!-- Sidebar -->
+            <aside class="w-full lg:w-[360px] flex flex-col gap-8">
+                <!-- Recommended Tools Card -->
+                <div
+                    class="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 p-6 shadow-sm sticky top-24">
+                    <h4 class="text-lg font-bold mb-5 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-">build</span>
+                        Recommended Tools
+                    </h4>
+                    <div class="space-y-4">
+                        <div
+                            class="flex items-center gap-4 p-3 rounded-lg hover:bg-background-light dark:hover:bg-gray-800 transition-colors cursor-pointer group">
+                            <div class="size-10 rounded-lg bg-/10 text- flex items-center justify-center shrink-0">
+                                <span class="material-symbols-outlined">data_object</span>
+                            </div>
+                            <div class="flex-1 overflow-hidden">
+                                <p class="text-sm font-semibold group-hover:text- transition-colors truncate">Schema
+                                    Markup Tool</p>
+                                <p class="text-[11px] text-gray-500">Generate JSON-LD scripts</p>
+                            </div>
+                            <span class="material-symbols-outlined text-gray-400 text-[18px]">chevron_right</span>
+                        </div>
+                        <div
+                            class="flex items-center gap-4 p-3 rounded-lg hover:bg-background-light dark:hover:bg-gray-800 transition-colors cursor-pointer group">
+                            <div class="size-10 rounded-lg bg-/10 text- flex items-center justify-center shrink-0">
+                                <span class="material-symbols-outlined">speed</span>
+                            </div>
+                            <div class="flex-1 overflow-hidden">
+                                <p class="text-sm font-semibold group-hover:text- transition-colors truncate">Keyword
+                                    Density Checker</p>
+                                <p class="text-[11px] text-gray-500">Analyze text distributions</p>
+                            </div>
+                            <span class="material-symbols-outlined text-gray-400 text-[18px]">chevron_right</span>
+                        </div>
+                        <div
+                            class="flex items-center gap-4 p-3 rounded-lg hover:bg-background-light dark:hover:bg-gray-800 transition-colors cursor-pointer group">
+                            <div class="size-10 rounded-lg bg-/10 text- flex items-center justify-center shrink-0">
+                                <span class="material-symbols-outlined">account_tree</span>
+                            </div>
+                            <div class="flex-1 overflow-hidden">
+                                <p class="text-sm font-semibold group-hover:text- transition-colors truncate">XML
+                                    Sitemap Generator</p>
+                                <p class="text-[11px] text-gray-500">Create crawlable indexes</p>
+                            </div>
+                            <span class="material-symbols-outlined text-gray-400 text-[18px]">chevron_right</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Trending Guides -->
+                <div
+                    class="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 p-6 shadow-sm">
+                    <h4 class="text-lg font-bold mb-5 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-orange-500">trending_up</span>
+                        Trending Guides
+                    </h4>
+                    <div class="space-y-6">
+                        <a class="block group" href="#">
+                            <h5 class="text-sm font-medium leading-snug group-hover:text- transition-colors mb-1">How to
+                                handle SPA routing for SEO crawlers</h5>
+                            <p class="text-[11px] text-gray-400 flex items-center gap-1"><span
+                                    class="material-symbols-outlined text-[12px]">schedule</span> 12 mins read</p>
+                        </a>
+                        <a class="block group" href="#">
+                            <h5 class="text-sm font-medium leading-snug group-hover:text- transition-colors mb-1">The
+                                impact of Next.js 14 on page indexing</h5>
+                            <p class="text-[11px] text-gray-400 flex items-center gap-1"><span
+                                    class="material-symbols-outlined text-[12px]">schedule</span> 15 mins read</p>
+                        </a>
+                        <a class="block group" href="#">
+                            <h5 class="text-sm font-medium leading-snug group-hover:text- transition-colors mb-1">AI
+                                Search Generative Experience (SGE) Guide</h5>
+                            <p class="text-[11px] text-gray-400 flex items-center gap-1"><span
+                                    class="material-symbols-outlined text-[12px]">schedule</span> 6 mins read</p>
+                        </a>
+                    </div>
+                </div>
+                <!-- Sidebar Ad Slot -->
+                <div
+                    class="w-full bg-gray-50 dark:bg-gray-800/50 rounded-lg p-4 text-center border border-gray-200 dark:border-gray-800">
+                    <p class="text-[10px] text-gray-400 uppercase font-bold mb-2">Advertisement</p>
+                    <div
+                        class="aspect-square bg-gray-200 dark:bg-gray-700 rounded flex items-center justify-center overflow-hidden">
+                        <span class="text-gray-400 text-sm">300 x 300 ad</span>
+                    </div>
+                </div>
+                <!-- Newsletter -->
+                <div class="bg- rounded-xl p-6 text-white text-center">
+                    <span class="material-symbols-outlined text-4xl mb-2">mail</span>
+                    <h4 class="text-lg font-bold mb-2">Stay ahead of SEO</h4>
+                    <p class="text-xs text-blue-100 mb-4 leading-relaxed">Join 50k+ developers receiving weekly
+                        technical SEO updates.</p>
+                    <div class="space-y-2">
+                        <input
+                            class="w-full text-xs p-2.5 rounded-lg text-gray-900 border-none focus:ring-2 focus:ring-blue-300"
+                            placeholder="Email address" type="email" />
+                        <button
+                            class="w-full bg-white text- font-bold text-xs py-2.5 rounded-lg hover:bg-blue-50 transition-colors">Subscribe</button>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+    <footer class="bg-white dark:bg-background-dark border-t border-gray-200 dark:border-gray-800 mt-20 py-12">
+        <div class="max-w-[1200px] mx-auto px-6 text-center">
+            <div class="flex items-center justify-center gap-2 text- font-bold text-lg mb-6">
+                <span class="material-symbols-outlined">auto_fix_high</span> SEOPro Tools
+            </div>
+            <p class="text-sm text-gray-500 max-w-md mx-auto mb-8">
+                Building the web's most comprehensive SEO toolkit for the next generation of developers and creators.
+            </p>
+            <div class="flex justify-center gap-6 mb-8 text-gray-400">
+                <a class="hover:text- transition-colors text-sm font-medium" href="#">Privacy Policy</a>
+                <a class="hover:text- transition-colors text-sm font-medium" href="#">Terms of Service</a>
+                <a class="hover:text- transition-colors text-sm font-medium" href="#">API Docs</a>
+                <a class="hover:text- transition-colors text-sm font-medium" href="#">Twitter</a>
+            </div>
+            <p class="text-xs text-gray-400">© 2024 SEOPro Tools. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
