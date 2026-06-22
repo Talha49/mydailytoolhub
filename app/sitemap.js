@@ -11,7 +11,8 @@ export default async function sitemap() {
     'url-encoder', 'code-minifier', 'html-encoder', 'markdown-preview',
     'password-generator', 'uuid-generator', 'color-converter', 'text-diff',
     'qr-generator', 'timestamp-converter', 'secure-notepad', 'lorem-ipsum-generator',
-    'cron-job-generator', 'word-counter', 'case-converter', 'meta-tag-generator'
+    'cron-job-generator', 'word-counter', 'case-converter', 'meta-tag-generator',
+    'docx-style-cloner'
   ]
 
   let dbBlogPosts = []
